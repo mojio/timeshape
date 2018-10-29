@@ -3,8 +3,8 @@ import scala.sys.process._
 val dataVersion = "2018d"
 val softwareVersion = "5"
 val sevenZSupport = Seq(
-  "org.apache.commons" % "commons-compress" % "1.14",
-  "org.tukaani" % "xz" % "1.6"
+  "org.apache.commons" % "commons-compress" % "1.18",
+  "org.tukaani" % "xz" % "1.8"
 )
 val commonSettings = Seq(
   organization := "net.iakovlev",
@@ -24,7 +24,7 @@ lazy val core = (project in file("core"))
   .settings(commonSettings)
   .settings(
     libraryDependencies ++= Seq(
-      "com.esri.geometry" % "esri-geometry-api" % "2.1.0",
+      "com.esri.geometry" % "esri-geometry-api" % "2.2.1",
       "junit" % "junit" % "4.11" % Test,
       "com.novocode" % "junit-interface" % "0.11" % Test
         exclude ("junit", "junit-dep"),
@@ -60,7 +60,7 @@ lazy val builder = (project in file("builder"))
   .settings(commonSettings)
   .settings(
     libraryDependencies ++= Seq(
-      "de.grundid.opendatalab" % "geojson-jackson" % "1.8"
+      "de.grundid.opendatalab" % "geojson-jackson" % "1.8.1"
     ) ++ sevenZSupport,
     name := "timeshape-builder",
     skip in publish := true
